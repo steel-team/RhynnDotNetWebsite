@@ -1,0 +1,38 @@
+{
+    "targets": [
+        {
+            "name": "website",
+            "host": "",
+            "port": 22,
+            "authentication": {
+                "password": "root:pass"
+            },
+            "packages": [
+                "frontend", "assets"
+            ]
+        }
+    ],
+    "packages": {
+        "frontend": {
+            "localDirectory": "./.output/",
+            "targetDirectory": "/home/website2nd/",
+            "preDeployActions": [
+            ],
+            "postDeployActions": [
+                "sudo chown -R website2nd /home/website2nd",
+                "sudo service website2nd restart"
+
+            ]
+        },
+        "assets": {
+            "localDirectory": "./deploy-assets/",
+            "targetDirectory": "/home/website2nd/",
+            "preDeployActions": [],
+            "postDeployActions": [
+                "sudo chown -R frontend /home/website2nd/",
+                "sudo chmod +x /home/website2nd/start.sh",
+                "sudo service website2nd restart"
+            ]
+        }
+    }
+}

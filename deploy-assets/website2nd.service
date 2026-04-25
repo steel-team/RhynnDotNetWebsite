@@ -1,0 +1,14 @@
+[Unit]
+Description=Rhynn Net website service
+
+[Service]
+User=website2nd
+KillMode=control-group
+WorkingDirectory=/home/website2nd
+ExecStart=/home/website2nd/start.sh
+Restart=always
+TimeoutSec=300
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
