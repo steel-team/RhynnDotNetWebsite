@@ -12,20 +12,9 @@ sudo apt install certbot python3-certbot-nginx
 ### Add required sites
 
 ```bash
-sudo nano /etc/nginx/sites-available/openrhynn.net.conf
-# put content from openrhynn.net.conf
-sudo ln /etc/nginx/sites-available/openrhynn.net.conf /etc/nginx/sites-enabled
-```
-
-### Install webapp
-
-```bash
-cd /var/www/
-git clone https://github.com/steel-team/OpenRhynnRunner.git
-# Optional: update existing installation
-cd /var/www/OpenRhynnRunner
-git fetch
-git pull
+sudo nano /etc/nginx/sites-available/rhynn.net.conf
+# put content from rhynn.net.conf
+sudo ln /etc/nginx/sites-available/rhynn.net.conf /etc/nginx/sites-enabled
 ```
 
 ### Install website
@@ -34,7 +23,7 @@ git pull
 # Create user
 sudo adduser website2nd # enter password and other info at that step
 sudo usermod -aG sudo website2nd
-suso su website2nd
+sudo su website2nd
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 
@@ -53,14 +42,6 @@ deploy deploy.cfg
 # note, if you deploying using website user, please do that before
 sudo visudo
 website2nd ALL=(ALL) NOPASSWD: ALL # put this at the end of file
-```
-
-### Optionally, setup Java server proxy via nginx
-
-```bash
-sudo nano /etc/nginx/sites-available/server2.openrhynn.net.conf
-# put content from server2.openrhynn.net.conf
-sudo ln /etc/nginx/sites-available/server2.openrhynn.net.conf /etc/nginx/sites-enabled
 ```
 
 ### Install systemd service
