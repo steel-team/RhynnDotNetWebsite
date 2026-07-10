@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     groups: [
       {
         userAgent: ["Yandex"],
-        cleanParam: ["*"],
+        cleanParam: ["ybaip", "etext"],
         disallow: [],
       },
     ],
